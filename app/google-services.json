@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "580176514208",
+    "project_id": "apnanotes-e9518",
+    "storage_bucket": "apnanotes-e9518.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580176514208:android:6858f9b8d1bbf4232e0dc5",
+        "android_client_info": {
+          "package_name": "com.example.apnanotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580176514208-hj9557p3crp4cl8kvuu8asj31iu8c9gn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4fOT92sz9BJVKsNjp5QYp8p1uQ346k4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "580176514208-hj9557p3crp4cl8kvuu8asj31iu8c9gn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
