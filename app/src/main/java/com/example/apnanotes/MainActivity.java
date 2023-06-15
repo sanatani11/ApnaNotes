@@ -9,6 +9,7 @@ import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,17 +26,20 @@ public class MainActivity extends AppCompatActivity {
     TextView tvForgetPassword;
     FirebaseAuth firebaseAuth;
 
+    ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        getSupportActionBar().hide();
+        getSupportActionBar().hide();
         etLoginEmail = findViewById(R.id.etLoginEmail);
         etLoginPassword = findViewById(R.id.etLoginPassword);
         btnLogin = findViewById(R.id.btnLogin);
         btnSignup = findViewById(R.id.btnSignup);
         tvForgetPassword = findViewById(R.id.tvForgetPassword);
+        progressBar = findViewById(R.id.progressBarMainActivity);
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         if(firebaseUser!=null)
@@ -69,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     //Login the user
+
+                    progressBar.setVisibility(View.VISIBLE);
                     firebaseAuth.signInWithEmailAndPassword(mail,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -79,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                             else
                             {
                                 Toast.makeText(MainActivity.this, "Account doesn't exist", Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.INVISIBLE);
                             }
                         }
                     });
@@ -94,8 +101,10 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Logged In", Toast.LENGTH_SHORT).show();
             finish();
             startActivity(new Intent(MainActivity.this,NotesActivity.class));
+            finish();
         }
         else {
+            progressBar.setVisibility(View.INVISIBLE);
             Toast.makeText(getApplicationContext(), "First Verify your email", Toast.LENGTH_SHORT).show();
             firebaseAuth.signOut();
         }

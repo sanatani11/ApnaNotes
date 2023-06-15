@@ -26,7 +26,7 @@ public class ForgetPassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password);
-//        getSupportActionBar().hide();
+        getSupportActionBar().hide();
         etForgotPassword = findViewById(R.id.etForgotPassword);
         btnPasswordRecover = findViewById(R.id.btnPasswordRecover);
         tvGobacktologin = findViewById(R.id.tvGoBackToLogin);
@@ -37,6 +37,7 @@ public class ForgetPassword extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ForgetPassword.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -56,6 +57,7 @@ public class ForgetPassword extends AppCompatActivity {
                                 Toast.makeText(ForgetPassword.this, "Mail sent, You can recover your password using mail.", Toast.LENGTH_SHORT).show();
                                 finish();
                                 startActivity(new Intent(ForgetPassword.this,MainActivity.class));
+                                finish();
                             }
                             else
                             {

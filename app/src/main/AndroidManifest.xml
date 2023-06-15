@@ -6,11 +6,25 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/notebook"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.ApnaNotes"
         tools:targetApi="31">
+        <activity
+            android:name=".NoteDetail"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+
+        <activity
+            android:name=".EditNote"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+
+        <activity
+            android:name=".CreateNote"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".NotesActivity"
             android:exported="false" />

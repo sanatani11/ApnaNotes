@@ -30,7 +30,7 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-//        getSupportActionBar().hide();
+        getSupportActionBar().hide();
         etSignupEmail = findViewById(R.id.etSignupEmail);
         etSignupPassword = findViewById(R.id.etSignupPassword);
         btnSignUp = findViewById(R.id.btnSignup);
