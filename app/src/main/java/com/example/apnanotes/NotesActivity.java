@@ -52,6 +52,7 @@ public class NotesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_notes);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -65,6 +66,7 @@ public class NotesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(NotesActivity.this, CreateNote.class));
+                finish();
             }
         });
 
@@ -113,6 +115,7 @@ public class NotesActivity extends AppCompatActivity {
                                 intent.putExtra("content",model.getContent());
                                 intent.putExtra("noteID",docId);
                                 v.getContext().startActivity(intent);
+                                finish();
                                 return false;
                             }
                         });
@@ -129,6 +132,8 @@ public class NotesActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         Toast.makeText(NotesActivity.this, "Note is deleted", Toast.LENGTH_SHORT).show();
+                                        noteAdapter.notifyDataSetChanged();
+
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -237,10 +242,8 @@ public class NotesActivity extends AppCompatActivity {
 
     }
 
-    @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
