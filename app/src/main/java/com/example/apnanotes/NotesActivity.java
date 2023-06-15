@@ -244,6 +244,7 @@ public class NotesActivity extends AppCompatActivity {
 
     public void onBackPressed() {
         super.onBackPressed();
+        finishAffinity();
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
